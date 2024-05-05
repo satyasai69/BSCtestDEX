@@ -49,7 +49,7 @@ const HotTokenList: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency)
 
   const { t } = useTranslation()
   return (
-    <h1>.</h1>
+    <h1>.</h1> 
   )
 }
 
