@@ -1,8 +1,8 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
+  "short_name": "KCB SWAP",
+  "name": "KCB SWAP",
   "description": "Farm CAKE with Pancake LP Tokens",
-  "homepage_url": "https://pancakeswap.finance",
+  "homepage_url": "/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1FC7D4",
@@ -10,12 +10,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon2.ico",
       "type": "image/x-icon",
       "sizes": "16x16"
     },
     {
-      "src": "logo.png",
+      "src": "logo2.png",
       "type": "image/png",
       "sizes": "256x256"
     }

@@ -39,7 +39,7 @@ const SpeechBubble = styled.div`
   }
 `
 
-const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
+const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => { 
   const { t } = useTranslation()
   const [, hideBanner] = usePhishingBanner()
   const warningTextAsParts = useMemo(() => {

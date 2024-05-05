@@ -4,8 +4,8 @@ import { SerializedWrappedToken } from '@pancakeswap/token-lists'
 import Trans from 'components/Trans'
 import { VaultKey } from 'state/types'
 // import { VaultKey } from 'state/types' 
-import { bscTokens, bscTestnetTokens } from '@pancakeswap/tokens' 
-// import { bscTestnetTokens } from '@pancakeswap/tokens' 
+import { bscTokens, bscTestnetTokens , KBCTokens} from '@pancakeswap/tokens' 
+// import { bscTestnetTokens } from '@pancakeswap/tokens'  
 import { PoolCategory } from './types'
 
 /**
@@ -129,8 +129,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
 
   {
     sousId: 0,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.cake,
+    stakingToken: KBCTokens.USD,
+    earningToken: KBCTokens.USD1,
     contractAddress: {
       97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
@@ -139,6 +139,21 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     tokenPerBlock: '10',
     isFinished: false,
   },
+
+
+  {
+    sousId: 0,
+    stakingToken: bscTokens.cake,
+    earningToken: bscTokens.cake,
+    contractAddress: {
+      11000: '0x0FdCb4bD998619c2B8634A422524f7C858A93D83',
+    //  56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+    },
+    poolCategory: PoolCategory.CORE, 
+    tokenPerBlock: '10',
+    isFinished: false,
+  },
+
 
  
 
