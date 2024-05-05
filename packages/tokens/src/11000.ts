@@ -5,19 +5,19 @@ export const KBCTokens = {
 
   USD: new ERC20Token(
     ChainId.KBC,
-    '0x52ED537d047d223156c160C2A76F8603a90fB59C', 
+    '0xa7d0e69fb770c6A3CB48E365f64F2d0fD44DbD42', 
     18,
-    'USD',
-    'USD',
+    'USDT',
+    'USDT', 
     'https://www.binance.com/',
   ),
 
   USD1: new ERC20Token(
     ChainId.KBC,  
-    '0xf7e5eCA1f8631f6f86c03DC38179B8B5cB4Ca389',
+    '0xd8Be685E1868B4BAC6FE9D4dB8b6fDaA66CDc7f9',
     18,
-    'USD1',
-    'USD1',
+    'USDT',
+    'USDT',
     'https://www.binance.com/',
   ),
 

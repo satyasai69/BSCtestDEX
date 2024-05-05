@@ -49,7 +49,16 @@ const HotTokenList: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency)
 
   const { t } = useTranslation()
   return (
-    <Wrapper>
+    <h1>.</h1>
+  )
+}
+
+export default memo(HotTokenList)
+
+
+/**
+ * 
+ * <Wrapper>
       <MenuWrapper>
         <ButtonMenu activeIndex={index} onItemClick={setIndex} fullWidth scale="sm" variant="subtle">
           <ButtonMenuItem>{chainId === ChainId.BSC ? t('Price Change') : t('Liquidity')}</ButtonMenuItem>
@@ -74,7 +83,4 @@ const HotTokenList: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency)
         />
       )}
     </Wrapper>
-  )
-}
-
-export default memo(HotTokenList)
+ */
