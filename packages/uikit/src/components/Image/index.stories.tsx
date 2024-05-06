@@ -80,7 +80,7 @@ export const TokenImages: React.FC<React.PropsWithChildren> = () => {
   return (
     <Flex flexWrap="wrap">
       {tokens.map((token) => {
-        const src = `https://pancakeswap.finance/images/tokens/${token.address[56]}.png`;
+        const src = `https://pancakeswap.finance/images/tokens/${token.address[56]}.png`; // TOKEN IMAGE
 
         return (
           <StyledBox key={token.symbol} p="16px">

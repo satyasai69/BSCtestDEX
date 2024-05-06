@@ -20,7 +20,7 @@ export type ClientConfig<TProvider extends AptosClient = AptosClient> = {
   provider: ((config: { networkName?: string }) => TProvider) | TProvider
   /**
    * Custom storage for data persistance
-   * @default window.localStorage
+   * @default   window.localStorage
    */
   storage?: ClientStorage
 }

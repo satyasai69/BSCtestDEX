@@ -37,10 +37,10 @@ interface WalletInfoProps {
 const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss }) => {
   const { t } = useTranslation()
   const { account, chainId, chain } = useActiveWeb3React()
-  const isBSC = chainId === ChainId.BSC
+  const isBSC = chainId === ChainId.KBC // .BSC
   const bnbBalance = useBalance({ address: account, chainId: ChainId.BSC })
   const nativeBalance = useBalance({ address: account, enabled: !isBSC })
-  const native = useNativeCurrency()
+  const native = useNativeCurrency() 
   const wNativeToken = !isBSC ? WNATIVE[chainId] : null
   const wBNBToken = WNATIVE[ChainId.BSC]
   const { balance: wNativeBalance, fetchStatus: wNativeFetchStatus } = useTokenBalance(wNativeToken?.address)
