@@ -130,8 +130,8 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'PancakeSwap',
-    appLogoUrl: 'https://pancakeswap.com/logo.png',
+    appName: 'KBC',
+    appLogoUrl: '',
   },
 })
 
@@ -180,7 +180,7 @@ export const trustWalletConnector = new TrustWalletConnector({
 })
 
 export const client = createClient({
-  autoConnect: false,
+  autoConnect: true, // false,
   provider,
   connectors: [
     new SafeConnector({ chains }),
