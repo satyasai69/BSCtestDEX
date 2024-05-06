@@ -28,7 +28,7 @@ const STABLE_SUPPORT_CHAIN_IDS = [ChainId.BSC_TESTNET, ChainId.BSC]
 
 export const SwapFeaturesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { isMobile } = useMatchBreakpoints()
-  const { chainId } = useActiveChainId()
+  const { chainId } =  useActiveChainId()
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
   const [isChartExpanded, setIsChartExpanded] = useState(false)

@@ -120,7 +120,7 @@ export const NATIVE: Record<
   [ChainId.GOERLI]: { name: 'Goerli Ether', symbol: 'GOR', decimals: 18 },
   [ChainId.BSC]: {
     name: 'Binance Chain Native Token',
-    symbol: 'BNB', 
+    symbol: 'KBC', 
     decimals: 18,
   },
   [ChainId.BSC_TESTNET]: {
