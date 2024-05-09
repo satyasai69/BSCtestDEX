@@ -59,7 +59,65 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
         </Flex>
       </PageHeader>
       <Page>
-        <PoolControls pools={pools}>
+     
+      <PoolControls pools={pools}> 
+          {({ chosenPools, viewMode, stakedOnly, normalizedUrlSearch, showFinishedPools }) => (
+            <>
+        
+
+
+
+                <CardLayout>
+                  {chosenPools.map((pool) =>
+                    pool.vaultKey ? (
+                      <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
+                    ) : (
+                      <Pool.PoolCard<Token>
+                        key={pool.sousId}
+                        pool={pool}
+                        isStaked={Boolean(pool?.userData?.stakedBalance?.gt(0))}
+                        cardContent={
+                          account ? (
+                            <CardActions pool={pool} stakedBalance={pool?.userData?.stakedBalance} />
+                          ) : (
+                            <>
+                              <Text mb="10px" textTransform="uppercase" fontSize="12px" color="textSubtle" bold>
+                                {t('Start earning')}
+                              </Text>
+                              <ConnectWalletButton />
+                            </>
+                          )
+                        }
+                        tokenPairImage={
+                          <TokenPairImage
+                            primaryToken={pool.earningToken}
+                            secondaryToken={pool.stakingToken}
+                            width={64}
+                            height={64}
+                          />
+                        }
+                        cardFooter={<CardFooter pool={pool} account={account} />}
+                        aprRow={<AprRow pool={pool} stakedBalance={pool?.userData?.stakedBalance} />}
+                      />
+                    ),
+                  )}
+                </CardLayout>
+              
+               
+
+
+            </>
+          )}
+        </PoolControls> 
+      
+      </Page>
+    </>
+  )
+}
+
+export default Pools
+
+/**  <PoolControls pools={pools}> 
           {({ chosenPools, viewMode, stakedOnly, normalizedUrlSearch, showFinishedPools }) => (
             <>
               {showFinishedPools && (
@@ -144,10 +202,4 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
               />
             </>
           )}
-        </PoolControls>
-      </Page>
-    </>
-  )
-}
-
-export default Pools
+        </PoolControls> */

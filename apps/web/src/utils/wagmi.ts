@@ -40,7 +40,7 @@ const bscTestnet = {
 
 
 const  KBC = {
-  id: 11000,
+  id: 22000, 
   name: "KBC",
   network: "KBC", 
   nativeCurrency: {
@@ -51,7 +51,7 @@ const  KBC = {
   rpcUrls: {
 
     default: {
-      http: ["https://mainnet-rpc.kbcfoundation.com"],
+      http: ["https://testnet-rpc.kbcfoundation.com"]// ["https://mainnet-rpc.kbcfoundation.com"],
      // webSocket: ["wss://mainnet-wss.kbcfoundation.com"]
     }
   },
@@ -61,7 +61,7 @@ const  KBC = {
   },
   contracts: {
     multicall3: {
-      address: "0xbF69dB43EbAb04969B8753E389430586699728d9",
+      address: "0x167AB244d1c41B8c226A4bf4e4aB24aD32D3E22a", // "0xbF69dB43EbAb04969B8753E389430586699728d9",
       blockCreated: 315596
     }
   },

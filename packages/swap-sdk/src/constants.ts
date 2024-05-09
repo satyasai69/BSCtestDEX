@@ -3,7 +3,7 @@ import { ERC20Token } from './entities/token'
 
 export enum ChainId {
   ETHEREUM =1 ,
-  KBC = 11000,
+  KBC = 22000,// 11000, 
   GOERLI = 5,
   BSC = 56,
   BSC_TESTNET = 97,
@@ -12,7 +12,7 @@ export enum ChainId {
 export const ZERO_PERCENT = new Percent('0')
 export const ONE_HUNDRED_PERCENT = new Percent('1')  
 
-export const FACTORY_ADDRESS = '0xAc5Cf3303919D8f24645D7F1dB8fe4Fbd9Ad7ff0'   // 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73
+export const FACTORY_ADDRESS = '0xaAAB7Da1F65467ec2D504A2C93c4863cc3DdF9e1'   // 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73   
 
 const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'
 
@@ -23,15 +23,15 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.BSC]: FACTORY_ADDRESS, 
   [ChainId.BSC_TESTNET]: '0xe78a015B23aB458A3Cdb501F811Bd898ECE59753', // '0xe78a015B23aB458A3Cdb501F811Bd898ECE59753',  
 }
-export const INIT_CODE_HASH ='0xa253c5010701b4a0bee32702f070ba5a04ad9ce0fad1b4778b7fd756ae4ccdfc'// '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5' 
+export const INIT_CODE_HASH ='0x64a86ecd06c17d7ba96362dfdbd2757bd1efe1c6aca7e3a23c0cc37eb0f013bc'// '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5' 
 
 const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
-  [ChainId.KBC]: '0xa253c5010701b4a0bee32702f070ba5a04ad9ce0fad1b4778b7fd756ae4ccdfc', // 0x4ebe4285f94212ea215880672e2d749cb314c339b13437a7c3a15c74b0209fd1 this
-  [ChainId.BSC_TESTNET]: '0xa253c5010701b4a0bee32702f070ba5a04ad9ce0fad1b4778b7fd756ae4ccdfc',
+  [ChainId.KBC]: '0x64a86ecd06c17d7ba96362dfdbd2757bd1efe1c6aca7e3a23c0cc37eb0f013bc', // 0x4ebe4285f94212ea215880672e2d749cb314c339b13437a7c3a15c74b0209fd1 this
+  [ChainId.BSC_TESTNET]: '0x64a86ecd06c17d7ba96362dfdbd2757bd1efe1c6aca7e3a23c0cc37eb0f013bc',
 }
 
 export const WETH9 = {
@@ -80,7 +80,7 @@ export const WBNB = {
   ),
   [ChainId.KBC]: new ERC20Token(
     ChainId.KBC,
-    '0x7E9b6bAFd0B3b82A1B91111a1e1380fe51967A63', 
+    '0xE1e61dD8DF8bbF75935fe04Dc214c6d517fc3622', 
     18,
     'KBC',
     'Wrapped KBC',
@@ -91,7 +91,7 @@ export const WBNB = {
 export const WKBC = {
   [ChainId.KBC]: new ERC20Token(
     ChainId.KBC,
-    '0x7E9b6bAFd0B3b82A1B91111a1e1380fe51967A63', 
+    '0xE1e61dD8DF8bbF75935fe04Dc214c6d517fc3622',  
     18,
     'KBC',
     'Wrapped KBC',

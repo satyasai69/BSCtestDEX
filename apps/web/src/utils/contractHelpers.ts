@@ -159,7 +159,7 @@ import { ChainId } from '@pancakeswap/sdk'
 export const getContract = ({
   abi,
   address,
-  chainId = ChainId.BSC,
+  chainId = ChainId.KBC,
   signer,
 }: {
   abi: any
@@ -192,7 +192,7 @@ export const getIfoV3Contract = (address: string, signer?: Signer | Provider) =>
 export const getMMLinkedPoolContract = (signer?: Signer | Provider, chainId?: number) => {
   return getContract({ abi: mmLinkedPoolAbi, address: getMMLinkedPoolAddress(chainId), signer }) as MmLinkedPool
 }
-export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
+export const getSouschefContract = (id: number, signer?: Signer | Provider) => { 
   const config = poolsConfig.find((pool) => pool.sousId === id)
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
   return getContract({ abi, address: getAddress(config.contractAddress), signer }) as SousChef

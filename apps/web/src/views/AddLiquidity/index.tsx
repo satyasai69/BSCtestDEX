@@ -213,11 +213,13 @@ export default function AddLiquidity({ currencyA, currencyB }) {
     ],
   )
 
+  
+
   // check whether the user has approved the router on the tokens
-  const [approvalA, approveACallback] = useApproveCallback(
+ const [approvalA, approveACallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_A],
     preferZapInstead ? zapAddress : ROUTER_ADDRESS[chainId],
-  )
+  ) 
   const [approvalB, approveBCallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_B],
     preferZapInstead ? zapAddress : ROUTER_ADDRESS[chainId],
@@ -240,6 +242,10 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
     }
 
+
+
+
+
     let estimate
     let method: (...args: any) => Promise<TransactionResponse>
     let args: Array<string | string[] | number>
@@ -249,14 +255,15 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       estimate = routerContract.estimateGas.addLiquidityETH
       method = routerContract.addLiquidityETH
       args = [
-        (tokenBIsNative ? currencyA : currencyB)?.wrapped?.address ?? '', // token
-        (tokenBIsNative ? parsedAmountA : parsedAmountB).quotient.toString(), // token desired
-        amountsMin[tokenBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
-        amountsMin[tokenBIsNative ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
+        (tokenBIsNative ? currencyA : currencyB)?.wrapped?.address ?? '', 
+        (tokenBIsNative ? parsedAmountA : parsedAmountB).quotient.toString(), 
+        amountsMin[tokenBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
+        amountsMin[tokenBIsNative ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), 
         account,
         deadline.toHexString(),
+        addressmint
       ]
-      value = BigNumber.from((tokenBIsNative ? parsedAmountB : parsedAmountA).quotient.toString())
+      value = BigNumber.from((tokenBIsNative ? parsedAmountB : parsedAmountA).quotient.toString()) 
     } else {
       estimate = routerContract.estimateGas.addLiquidity
       method = routerContract.addLiquidity
@@ -269,6 +276,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
         amountsMin[Field.CURRENCY_B].toString(),
         account,
         deadline.toHexString(),
+        addressmint
       ]
       value = null
     }
@@ -573,7 +581,47 @@ export default function AddLiquidity({ currencyA, currencyB }) {
     )
 
   const [onPresentSettingsModal] = useModal(<SettingsModal mode={SettingsMode.SWAP_LIQUIDITY} />)
+
+
+
+  const [addressmint, setaddressmint] = useState(0);
+  const [isChecked, setIsChecked] = useState(true);
+ // console.log(isChecked)
+  // console.log(isChecked  ? '1' : '0') // ? 'true' : 'false'
+  // console.log(isChecked  ? 'true' : 'false') 
+  const handleToggleChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  /* // Function to handle switch toggle
+  const handleSwitchToggle = () => {
+      setIncludeMessage((prevValue) => !prevValue); // Toggle the boolean value
+  }; */
+
+  useEffect(() => {
+    if (isChecked) {
+      setaddressmint(mintaddress);
+    } else {
+      setaddressmint(notmintaddress);
+    }
+  }, [isChecked]);
+  
+ const mintaddress= 100
+ const notmintaddress = 101
+/* if(isChecked == true) {
+  setaddressmint(mintaddress)
+}else{
+  setaddressmint(notmintaddress)
+} */
+
+
+
+
 // line 601  IconSlot={<V3SwapPromotionIcon wrapperStyle={{ marginRight: '10px' }} />}
+
+
+
+
   return (
     <Page>
       <AppBody>
@@ -798,6 +846,75 @@ export default function AddLiquidity({ currencyA, currencyB }) {
                     </LightCard>
                   </>
                 )}
+
+
+
+               
+<div >
+      <input
+        type="checkbox"
+        name="toggle1"
+        style={{ opacity: '0', position: 'absolute' }}
+        className="mobileToggle"
+        id="toggle1"
+        checked={isChecked}
+        onChange={handleToggleChange}
+      />
+      <label
+        htmlFor="toggle1"
+        style={{
+          position: 'relative',
+          display: 'inline-block',
+          userSelect: 'none',
+          transition: '.4s ease',
+          height: '30px',
+          width: '50px',
+          border: '1px solid #e4e4e4',
+          borderRadius: '60px',
+        }}
+      >
+        <div
+          style={{
+            content: '""',
+            position: 'absolute',
+            display: 'block',
+            transition: '.2s cubic-bezier(.24, 0, .5, 1)',
+            height: '30px',
+            width: '51px',
+            top: '0',
+            left: '0',
+            borderRadius: '30px',
+            background: isChecked ? '#2ecc71' : 'whitesmoke',
+          }}
+        ></div>
+        <div
+          style={{
+            content: '""',
+            position: 'absolute',
+            display: 'block',
+            boxShadow: isChecked ? '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, .04), 0 4px 9px hsla(0, 0%, 0%, .13), 0 3px 3px hsla(0, 0%, 0%, .05)' : 'none',
+            transition: '.35s cubic-bezier(.54, 1.60, .5, 1)',
+            background: 'whitesmoke',
+            height: '28px',
+            width: '28px',
+            top: '1px',
+            left: isChecked ? '24px' : '0px',
+            borderRadius: '60px',
+          }}
+        ></div>
+      </label>
+      <h1>LOCK LP LIFE LONG</h1>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
                 <RowBetween>
                   <Text bold fontSize="12px" color="secondary">
