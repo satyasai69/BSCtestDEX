@@ -862,7 +862,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       />
       <label
         htmlFor="toggle1"
-        style={{
+        style={{  
           position: 'relative',
           display: 'inline-block',
           userSelect: 'none',
