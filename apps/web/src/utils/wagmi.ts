@@ -56,12 +56,12 @@ const  KBC = {
     }
   },
   blockExplorers: {
-    etherscan: { name: "KBCSCAN", url: "https://scan.kbcfoundation.com/" },
-    default: { name: "KBCSCAN", url: "https://scan.kbcfoundation.com/" }
+    etherscan: { name: "KBCSCAN", url: "https://testnet-scan.kbcfoundation.com/" },
+    default: { name: "KBCSCAN", url: "https://testnet-scan.kbcfoundation.com//" }
   },
   contracts: {
     multicall3: {
-      address: "0x167AB244d1c41B8c226A4bf4e4aB24aD32D3E22a", // "0xbF69dB43EbAb04969B8753E389430586699728d9",
+      address: "0x167AB244d1c41B8c226A4bf4e4aB24aD32D3E22a", // "0xbF69dB43EbAb04969B8753E389430586699728d9",  
       blockCreated: 315596
     }
   },

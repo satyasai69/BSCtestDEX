@@ -62,7 +62,7 @@ import {
 } from '../../state/user/hooks'
 import { calculateGasMargin } from '../../utils'
 import { calculateSlippageAmount, useRouterContract } from '../../utils/exchange'
-import { formatAmount } from '../../utils/formatInfoNumbers'
+import { formatAmount } from '../../utils/formatInfoNumbers' 
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
 import Page from '../Page'
@@ -873,6 +873,15 @@ export default function AddLiquidity({ currencyA, currencyB }) {
           borderRadius: '60px',
         }}
       >
+          <input
+        type="checkbox"
+        name="toggle1"
+        style={{ opacity: '0', position: 'absolute' }}
+        className="mobileToggle"
+        id="toggle1"
+        checked={isChecked}
+        onChange={handleToggleChange}
+      />
         <div
           style={{
             content: '""',
@@ -886,7 +895,8 @@ export default function AddLiquidity({ currencyA, currencyB }) {
             borderRadius: '30px',
             background: isChecked ? '#2ecc71' : 'whitesmoke',
           }}
-        ></div>
+        >s</div>
+          
         <div
           style={{
             content: '""',
@@ -901,7 +911,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
             left: isChecked ? '24px' : '0px',
             borderRadius: '60px',
           }}
-        ></div>
+        >s</div>
       </label>
       <h1>LOCK LP LIFE LONG</h1>
     </div>
