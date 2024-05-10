@@ -44,3 +44,4 @@ yarn start
 | [wagmi](/packages/wagmi)                 | Extension for [wagmi](https://github.com/wagmi-dev/wagmi), including bsc chain and binance wallet connector |
 # DEX
 # KBC-HOME
+# bsc-dex
