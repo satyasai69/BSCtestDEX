@@ -72,7 +72,8 @@ const  KBC = {
 
 // const CHAINS = [bsc, mainnet, bscTestnet, goerli , KBC] 
 
-const CHAINS = [ KBC]
+
+  const CHAINS = [ KBC, bscTestnet ]
  
  
 const getNodeRealUrl = (networkName: string) => {
@@ -98,7 +99,7 @@ const getNodeRealUrl = (networkName: string) => {
   }
 
   const url = `https://${host}`
-  return {
+  return { 
     http: url,
     webSocket: url.replace(/^http/i, 'wss').replace('.nodereal.io/v1', '.nodereal.io/ws/v1'),
   }
