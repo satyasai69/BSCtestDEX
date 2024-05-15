@@ -66,7 +66,7 @@ const SlippageTabs = () => {
 
   const parseCustomDeadline = (value: string) => {
     setDeadlineInput(value)
-    setSlippageInput("10")
+    setSlippageInput("30")
 
     try {
       const valueAsInt: number = Number.parseInt(value) * 60
