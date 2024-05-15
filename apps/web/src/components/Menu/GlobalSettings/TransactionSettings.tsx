@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import { escapeRegExp } from 'utils'
 import { Text, Button, Input, Flex, Box, QuestionHelper } from '@pancakeswap/uikit'
 // import { Text, Button, Input, Flex, Box, QuestionHelper } from '@pancakeswap/uikit'
@@ -6,7 +6,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks'
 
 enum SlippageError {
-  InvalidInput = 'InvalidInput',
+  InvalidInput = 'InvalidInput', 
   RiskyLow = 'RiskyLow',
   RiskyHigh = 'RiskyHigh',
 }
@@ -51,7 +51,7 @@ const SlippageTabs = () => {
 
   const parseCustomSlippage = (value: string) => {
     if (value === '' || inputRegex.test(escapeRegExp(value))) {
-      setSlippageInput(value)  // value
+      setSlippageInput("300")  // value
 
       try {
         const valueAsIntFromRoundedFloat = Number.parseInt((Number.parseFloat(value) * 100).toString())
@@ -63,10 +63,11 @@ const SlippageTabs = () => {
       }
     }
   }
-
+ 
   const parseCustomDeadline = (value: string) => {
     setDeadlineInput(value)
-    setSlippageInput("30")
+   //  setSlippageInput("50");
+   
 
     try {
       const valueAsInt: number = Number.parseInt(value) * 60
@@ -75,11 +76,19 @@ const SlippageTabs = () => {
       } else {
         deadlineError = DeadlineError.InvalidInput
       }
-    } catch (error) {
+    } catch (error) { 
       console.error(error)
     }
   
   }
+
+  useEffect(() => {
+    // Set slippageInput to "50" when the component mounts
+    setSlippageInput('2000');
+    // Set userSlippageTolerance to 500 when the component mounts
+    setUserSlippageTolerance(2000);
+  }, []); // empty dependency array ensures this effect runs only once when the component mounts
+
   /*
   <Flex flexDirection="column" mb="24px">
       <Flex mb="12px">
@@ -108,70 +117,9 @@ const SlippageTabs = () => {
     <Flex flexDirection="column">
    
 
-   <Flex flexWrap="wrap">
-          <Button
-            mt="4px"
-            mr="4px"
-            scale="sm"
-            onClick={() => {
-              setSlippageInput('')
-              setUserSlippageTolerance(10)
-            }}
-            variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
-          >
-            0.1%
-          </Button>
-          <Button
-            mt="4px"
-            mr="4px"
-            scale="sm"
-            onClick={() => {
-              setSlippageInput('')
-              setUserSlippageTolerance(50)
-            }}
-            variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
-          >
-            0.5%
-          </Button>
-          <Button
-            mr="4px"
-            mt="4px"
-            scale="sm"
-            onClick={() => {
-              setSlippageInput('')
-              setUserSlippageTolerance(100)
-            }}
-            variant={userSlippageTolerance === 100 ? 'primary' : 'tertiary'}
-          >
-            1.0%
-          </Button>
-          <Flex alignItems="center">
-            <Box width="76px" mt="4px">
-              <Input
-                scale="sm"
-                inputMode="decimal"
-                pattern="^[0-9]*[.,]?[0-9]{0,2}$"
-                placeholder={(userSlippageTolerance / 100).toFixed(2)}
-                value={slippageInput}
-                onBlur={() => {
-                  parseCustomSlippage((userSlippageTolerance / 100).toFixed(2))
-                }}
-                onChange={(event) => {
-                  if (event.currentTarget.validity.valid) {
-                    parseCustomSlippage(event.target.value.replace(/,/g, '.'))
-                  }
-                }}
-                isWarning={!slippageInputIsValid}
-                isSuccess={![10, 50, 100].includes(userSlippageTolerance)}
-              />
-            </Box>
-            <Text color="primary" bold ml="2px">
-              %
-            </Text>
-          </Flex>
-        </Flex> 
+   
 
-        
+
 
 
 

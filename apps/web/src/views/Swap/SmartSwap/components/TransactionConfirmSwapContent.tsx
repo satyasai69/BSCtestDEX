@@ -44,7 +44,7 @@ const TransactionConfirmSwapContent = ({
   trade,
   originalTrade,
   onAcceptChanges,
-  allowedSlippage,
+  allowedSlippage, 
   onConfirm,
   recipient,
   currencyBalances,

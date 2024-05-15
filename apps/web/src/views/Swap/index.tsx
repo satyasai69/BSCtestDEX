@@ -3,7 +3,7 @@ import { Currency } from '@pancakeswap/sdk'
 import { BottomDrawer, Flex, Modal, ModalV2, useMatchBreakpoints } from '@pancakeswap/uikit'
 import replaceBrowserHistory from '@pancakeswap/utils/replaceBrowserHistory'
 import { AppBody } from 'components/App'
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext , useEffect} from 'react'
 import { useSwapActionHandlers } from 'state/swap/useSwapActionHandlers'
 import { currencyId } from 'utils/currencyId'
 
@@ -19,10 +19,13 @@ import useWarningImport from './hooks/useWarningImport'
 import { SmartSwapForm } from './SmartSwap'
 import { StyledInputCurrencyWrapper, StyledSwapContainer } from './styles'
 import { SwapFeaturesContext } from './SwapFeaturesContext'
+import { useUserSlippageTolerance, useUserTransactionTTL } from '../../state/user/hooks'
+
 
 const queryClient = new QueryClient()
 
 export default function Swap() {
+  const [userSlippageTolerance, setUserSlippageTolerance] = useUserSlippageTolerance()
   const { isDesktop } = useMatchBreakpoints()
   const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported } =
     useContext(SwapFeaturesContext)
@@ -60,6 +63,14 @@ export default function Swap() {
 
     [inputCurrencyId, outputCurrencyId, onCurrencySelection, warningSwapHandler],
   )
+// console.log(userSlippageTolerance) 
+
+  useEffect(() => {
+   
+    // Set userSlippageTolerance to 500 when the component mounts
+    setUserSlippageTolerance(2000);
+  }, []); // empty dependency array ensures this effect runs only once when the component mounts
+
 
   return (
     <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>

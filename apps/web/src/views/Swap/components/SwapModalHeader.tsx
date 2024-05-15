@@ -121,16 +121,7 @@ export default function SwapModalHeader({
         </SwapShowAcceptChanges>
       ) : null}
       <AutoColumn justify="flex-start" gap="sm" style={{ padding: '24px 0 0 0px' }}>
-        <RowFixed style={{ width: '100%' }}>
-          <Text color="secondary" bold textTransform="uppercase">
-            {t('Slippage Tolerance')}
-          </Text>
-          <Text bold color="primary" ml="auto" textAlign="end">
-            {typeof allowedSlippage === 'number'
-              ? `${basisPointsToPercent(allowedSlippage).toFixed(2)}%`
-              : allowedSlippage}
-          </Text>
-        </RowFixed>
+    
         {tradeType === TradeType.EXACT_OUTPUT && !isEnoughInputBalance && (
           <Text small color="failure" textAlign="left" style={{ width: '100%' }}>
             {t('Insufficient input token balance. Your transaction may fail.')}
@@ -152,3 +143,15 @@ export default function SwapModalHeader({
     </AutoColumn>
   )
 }
+
+
+/** 124     <RowFixed style={{ width: '100%' }}>
+          <Text color="secondary" bold textTransform="uppercase">
+            {t('Slippage Tolerances')}
+          </Text>
+          <Text bold color="primary" ml="auto" textAlign="end">
+            {typeof allowedSlippage === 'number'
+              ? `${basisPointsToPercent(allowedSlippage).toFixed(2)}%`
+              : allowedSlippage}
+          </Text>
+        </RowFixed> */
