@@ -8,7 +8,7 @@ import { computeTradePriceBreakdown, formatExecutionPrice, warningSeverity } fro
 import { AutoRow, RowBetween, RowFixed } from 'components/Layout/Row'
 import { TOTAL_FEE, LP_HOLDERS_FEE, TREASURY_FEE, BUYBACK_FEE } from 'config/constants/info'
 import FormattedPriceImpact from './FormattedPriceImpact'
-import { StyledBalanceMaxMini, SwapCallbackError } from './styleds'
+import { StyledBalanceMaxMini, SwapCallbackError } from './styleds' 
 
 const SwapModalFooterContainer = styled(AutoColumn)`
   margin-top: 24px;

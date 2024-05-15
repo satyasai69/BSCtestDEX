@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { escapeRegExp } from 'utils'
 import { Text, Button, Input, Flex, Box, QuestionHelper } from '@pancakeswap/uikit'
+// import { Text, Button, Input, Flex, Box, QuestionHelper } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import { useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks'
 
@@ -22,6 +23,7 @@ const SlippageTabs = () => {
   const [ttl, setTtl] = useUserTransactionTTL()
   const [slippageInput, setSlippageInput] = useState('')
   const [deadlineInput, setDeadlineInput] = useState('')
+  console.log(slippageInput, 'slip')
 
   const { t } = useTranslation()
 
@@ -49,7 +51,7 @@ const SlippageTabs = () => {
 
   const parseCustomSlippage = (value: string) => {
     if (value === '' || inputRegex.test(escapeRegExp(value))) {
-      setSlippageInput(value)
+      setSlippageInput(value)  // value
 
       try {
         const valueAsIntFromRoundedFloat = Number.parseInt((Number.parseFloat(value) * 100).toString())
@@ -64,6 +66,7 @@ const SlippageTabs = () => {
 
   const parseCustomDeadline = (value: string) => {
     setDeadlineInput(value)
+    setSlippageInput("10")
 
     try {
       const valueAsInt: number = Number.parseInt(value) * 60
@@ -75,22 +78,73 @@ const SlippageTabs = () => {
     } catch (error) {
       console.error(error)
     }
+  
   }
-
+  /*
+  <Flex flexDirection="column" mb="24px">
+      <Flex mb="12px">
+         <Text>{t('Slippage Tolerance')}</Text>
+  <QuestionHelper
+      text={t(
+        'Setting a high slippage tolerance can help transactions succeed, but you may not get such a good price. Use with caution.',
+      )}
+      placement="top-start"
+      ml="4px"
+    />
+  </Flex>
+        
+        {!!slippageError && (
+          <Text fontSize="14px" color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'} mt="8px">
+            {slippageError === SlippageError.InvalidInput
+              ? t('Enter a valid slippage percentage')
+              : slippageError === SlippageError.RiskyLow
+              ? t('Your transaction may fail')
+              : t('Your transaction may be frontrun')}
+          </Text>
+        )}
+      </Flex>
+  */
   return (
     <Flex flexDirection="column">
-      <Flex flexDirection="column" mb="24px">
-        <Flex mb="12px">
-          <Text>{t('Slippage Tolerance')}</Text>
+     
+      <Flex justifyContent="space-between" alignItems="center" mb="24px">
+        <Flex alignItems="center">
+          <Text>{t('Tx deadline (mins)')}</Text>
           <QuestionHelper
-            text={t(
-              'Setting a high slippage tolerance can help transactions succeed, but you may not get such a good price. Use with caution.',
-            )}
+            text={t('Your transaction will revert if it is left confirming for longer than this time.')}
             placement="top-start"
             ml="4px"
           />
         </Flex>
-        <Flex flexWrap="wrap">
+        <Flex>
+          <Box width="52px" mt="4px">
+            <Input
+              scale="sm"
+              inputMode="numeric"
+              pattern="^[0-9]+$"
+              isWarning={!!deadlineError}
+              onBlur={() => {
+                parseCustomDeadline((ttl / 60).toString())
+              }}
+              placeholder={(ttl / 60).toString()}
+              value={deadlineInput}
+              onChange={(event) => {
+                if (event.currentTarget.validity.valid) {
+                  parseCustomDeadline(event.target.value)
+                }
+              }}
+            />
+          </Box>
+        </Flex> 
+      </Flex>
+    </Flex>
+  )
+}
+
+export default SlippageTabs
+
+
+/** 94    <Flex flexWrap="wrap">
           <Button
             mt="4px"
             mr="4px"
@@ -151,49 +205,4 @@ const SlippageTabs = () => {
               %
             </Text>
           </Flex>
-        </Flex>
-        {!!slippageError && (
-          <Text fontSize="14px" color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'} mt="8px">
-            {slippageError === SlippageError.InvalidInput
-              ? t('Enter a valid slippage percentage')
-              : slippageError === SlippageError.RiskyLow
-              ? t('Your transaction may fail')
-              : t('Your transaction may be frontrun')}
-          </Text>
-        )}
-      </Flex>
-      <Flex justifyContent="space-between" alignItems="center" mb="24px">
-        <Flex alignItems="center">
-          <Text>{t('Tx deadline (mins)')}</Text>
-          <QuestionHelper
-            text={t('Your transaction will revert if it is left confirming for longer than this time.')}
-            placement="top-start"
-            ml="4px"
-          />
-        </Flex>
-        <Flex>
-          <Box width="52px" mt="4px">
-            <Input
-              scale="sm"
-              inputMode="numeric"
-              pattern="^[0-9]+$"
-              isWarning={!!deadlineError}
-              onBlur={() => {
-                parseCustomDeadline((ttl / 60).toString())
-              }}
-              placeholder={(ttl / 60).toString()}
-              value={deadlineInput}
-              onChange={(event) => {
-                if (event.currentTarget.validity.valid) {
-                  parseCustomDeadline(event.target.value)
-                }
-              }}
-            />
-          </Box>
-        </Flex>
-      </Flex>
-    </Flex>
-  )
-}
-
-export default SlippageTabs
+        </Flex> */

@@ -12,7 +12,7 @@ import {
   Message,
   MessageText,
   PencilIcon,
-  Text,
+  Text, 
   TooltipText,
   useModal,
   useTooltip,
@@ -257,11 +257,11 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       args = [
         (tokenBIsNative ? currencyA : currencyB)?.wrapped?.address ?? '', 
         (tokenBIsNative ? parsedAmountA : parsedAmountB).quotient.toString(), 
-        amountsMin[tokenBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
+        amountsMin[tokenBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), 
         amountsMin[tokenBIsNative ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), 
         account,
         deadline.toHexString(),
-        addressmint
+      addressmint
       ]
       value = BigNumber.from((tokenBIsNative ? parsedAmountB : parsedAmountA).quotient.toString()) 
     } else {
@@ -276,11 +276,11 @@ export default function AddLiquidity({ currencyA, currencyB }) {
         amountsMin[Field.CURRENCY_B].toString(),
         account,
         deadline.toHexString(),
-        addressmint
+      addressmint 
       ]
       value = null
     }
-
+ 
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
@@ -928,7 +928,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
 
                 <RowBetween>
                   <Text bold fontSize="12px" color="secondary">
-                    {t('Slippage Tolerance')}
+                    {t(' ')}
                     <IconButton scale="sm" variant="text" onClick={onPresentSettingsModal}>
                       <PencilIcon color="primary" width="10px" />
                     </IconButton>

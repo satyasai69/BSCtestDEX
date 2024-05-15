@@ -39,7 +39,7 @@ const SwapTransactionErrorContent = ({ onDismiss, message, openSettingModal }) =
             )}{' '}
             <Text bold display="inline" style={{ cursor: 'pointer' }} onClick={handleErrorDismiss}>
               <u>{t('slippage tolerance.')}</u>
-            </Text>
+            </Text> 
           </Text>
           <LinkExternal
             href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/trade-guide"

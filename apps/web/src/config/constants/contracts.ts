@@ -3,7 +3,7 @@ import { multicallAddresses } from '@pancakeswap/multicall'
 export default {
   masterChef: {
     97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
-    56: '0x9a9F6dEa3FA7BDfCCeB5DBe9d082305991D71fFe', // '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+    56: '0x9a9F6dEa3FA7BDfCCeB5DBe9d082305991D71fFe', // '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652', 
     11000: '0x9a9F6dEa3FA7BDfCCeB5DBe9d082305991D71fFe',
   },
   masterChefV1: {
