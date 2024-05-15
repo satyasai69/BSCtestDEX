@@ -106,7 +106,75 @@ const SlippageTabs = () => {
   */
   return (
     <Flex flexDirection="column">
-     
+   
+
+   <Flex flexWrap="wrap">
+          <Button
+            mt="4px"
+            mr="4px"
+            scale="sm"
+            onClick={() => {
+              setSlippageInput('')
+              setUserSlippageTolerance(10)
+            }}
+            variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
+          >
+            0.1%
+          </Button>
+          <Button
+            mt="4px"
+            mr="4px"
+            scale="sm"
+            onClick={() => {
+              setSlippageInput('')
+              setUserSlippageTolerance(50)
+            }}
+            variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
+          >
+            0.5%
+          </Button>
+          <Button
+            mr="4px"
+            mt="4px"
+            scale="sm"
+            onClick={() => {
+              setSlippageInput('')
+              setUserSlippageTolerance(100)
+            }}
+            variant={userSlippageTolerance === 100 ? 'primary' : 'tertiary'}
+          >
+            1.0%
+          </Button>
+          <Flex alignItems="center">
+            <Box width="76px" mt="4px">
+              <Input
+                scale="sm"
+                inputMode="decimal"
+                pattern="^[0-9]*[.,]?[0-9]{0,2}$"
+                placeholder={(userSlippageTolerance / 100).toFixed(2)}
+                value={slippageInput}
+                onBlur={() => {
+                  parseCustomSlippage((userSlippageTolerance / 100).toFixed(2))
+                }}
+                onChange={(event) => {
+                  if (event.currentTarget.validity.valid) {
+                    parseCustomSlippage(event.target.value.replace(/,/g, '.'))
+                  }
+                }}
+                isWarning={!slippageInputIsValid}
+                isSuccess={![10, 50, 100].includes(userSlippageTolerance)}
+              />
+            </Box>
+            <Text color="primary" bold ml="2px">
+              %
+            </Text>
+          </Flex>
+        </Flex> 
+
+        
+
+
+
       <Flex justifyContent="space-between" alignItems="center" mb="24px">
         <Flex alignItems="center">
           <Text>{t('Tx deadline (mins)')}</Text>

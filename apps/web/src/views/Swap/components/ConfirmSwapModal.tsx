@@ -38,7 +38,7 @@ const SwapTransactionErrorContent = ({ onDismiss, message, openSettingModal }) =
               'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your',
             )}{' '}
             <Text bold display="inline" style={{ cursor: 'pointer' }} onClick={handleErrorDismiss}>
-              <u>{t('slippage tolerance.')}</u>
+              <u>{t('.')}</u>
             </Text> 
           </Text>
           <LinkExternal

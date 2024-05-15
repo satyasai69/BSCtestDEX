@@ -16,7 +16,7 @@ export const FACTORY_ADDRESS = '0xdeeEb537Aad066AAdA2551CFEE638aD9aDF77269'    /
 
 const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'    
  
-export const FACTORY_ADDRESS_MAP: Record<number, string> = {
+export const FACTORY_ADDRESS_MAP: Record<number, string> = { 
   [ChainId.KBC]: '0xf098BaF10Ddc8Ae07B9A0281358C3DFE70420f26',
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,

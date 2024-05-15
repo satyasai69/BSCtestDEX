@@ -10,7 +10,7 @@ import truncateHash from '@pancakeswap/utils/truncateHash'
 import { TruncatedText, SwapShowAcceptChanges } from './styleds'
 
 export default function SwapModalHeader({
-  inputAmount,
+  inputAmount, 
   outputAmount,
   tradeType,
   priceImpactWithoutFee,
