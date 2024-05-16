@@ -88,12 +88,12 @@ const config: (
       items: [
       /*  {
           label: t('Farms'),
-          href: '/farms',
+          href: '/',
         }, */
         {
           label: t('Pools'),
-          href: '/pools',
-          supportChainIds: SUPPORT_ONLY_BSC,
+          href: 'https://kbc-stacking.vercel.app/',
+         // supportChainIds: SUPPORT_ONLY_BSC,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
