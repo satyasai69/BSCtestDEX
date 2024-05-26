@@ -73,7 +73,7 @@ const  KBC = {
 // const CHAINS = [bsc, mainnet, bscTestnet, goerli , KBC] 
 
 
-  const CHAINS = [ KBC, bscTestnet ]
+  const CHAINS = [ KBC ]
  
  
 const getNodeRealUrl = (networkName: string) => {
