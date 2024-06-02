@@ -40,7 +40,7 @@ export const KBCTokens = {
     'Bakeryswap Token', 
     'https://www.bakeryswap.org/',
   ),
-  WKBC: new ERC20Token(ChainId.KBC, '0xE1e61dD8DF8bbF75935fe04Dc214c6d517fc3622', 18, 'WKBC ', 'Wrapped KBC'),  
+  WKBC: new ERC20Token(ChainId.KBC, '0xd243f54604F88D22AbBb7a13F62a1780a50d0a19', 18, 'WKBC ', 'Wrapped KBC'),   
   wbtc: new ERC20Token(ChainId.KBC, '0xfC8bFbe9644e1BC836b8821660593e7de711e564', 8, 'WBTC', 'Wrapped BTC'),
   usdc: new ERC20Token(
     ChainId.KBC,

@@ -40,7 +40,7 @@ const bscTestnet = {
 
 
 const  KBC = {
-  id: 22000, 
+  id: 11000, 
   name: "KBC",
   network: "KBC", 
   nativeCurrency: {
@@ -51,17 +51,17 @@ const  KBC = {
   rpcUrls: {
 
     default: {
-      http: ["https://testnet-rpc.kbcfoundation.com"]// ["https://mainnet-rpc.kbcfoundation.com"],
-     // webSocket: ["wss://mainnet-wss.kbcfoundation.com"]
+      http: ["https://mainnet-rpc.kbcfoundation.com"]// ["https://mainnet-rpc.kbcfoundation.com"],
+     // webSocket: ["wss://mainnet-wss.kbcfoundation.com"] 
     }
   },
   blockExplorers: {
-    etherscan: { name: "KBCSCAN", url: "https://testnet-scan.kbcfoundation.com/" },
-    default: { name: "KBCSCAN", url: "https://testnet-scan.kbcfoundation.com//" }
+    etherscan: { name: "KBCSCAN", url: "https://scan.kbcfoundation.com/" },
+    default: { name: "KBCSCAN", url: "https://scan.kbcfoundation.com/" }
   },
   contracts: {
     multicall3: {
-      address: "0x167AB244d1c41B8c226A4bf4e4aB24aD32D3E22a", // "0xbF69dB43EbAb04969B8753E389430586699728d9",  
+      address: "0x5Cc2419702922962363C8A5a50bc130E0F2C13a2", // "0xbF69dB43EbAb04969B8753E389430586699728d9",   
       blockCreated: 315596
     }
   },
@@ -73,7 +73,7 @@ const  KBC = {
 // const CHAINS = [bsc, mainnet, bscTestnet, goerli , KBC] 
 
 
-  const CHAINS = [ KBC ]
+  const CHAINS = [ KBC ] 
  
  
 const getNodeRealUrl = (networkName: string) => {

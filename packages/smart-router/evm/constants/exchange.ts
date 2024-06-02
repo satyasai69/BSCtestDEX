@@ -4,11 +4,11 @@ import { bscTokens, bscTestnetTokens, KBCTokens, BUSD, USDC, USDT } from '@panca
 import { ChainMap, ChainTokenList } from '../types'
 
 export const ROUTER_ADDRESS: ChainMap<string> = {   
-  [ChainId.ETHEREUM]: '0x3BC722f252C7bAE2f55647e49aDcB9d33Ff6eBcC', 
+  [ChainId.ETHEREUM]: '0x3BC722f252C7bAE2f55647e49aDcB9d33Ff6eBcC',  
   [ChainId.GOERLI]: '0x3BC722f252C7bAE2f55647e49aDcB9d33Ff6eBcC',  
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]:'0x666Bc10632540dAe21c27Ac07D6d157D95e56421',           // '0xD99D1c33F9fC3444f8101754aBC46c52416550D1', 
-  [ChainId.KBC]: '0xda87758fE579C60505a4802A15C33EaED9d92452',           // '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',      
+  [ChainId.KBC]: '0x8849c2E7d276a85482833333133EF636075EcB87',             // '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',      
 } 
 
 export const STABLE_SWAP_INFO_ADDRESS: ChainMap<string> = {

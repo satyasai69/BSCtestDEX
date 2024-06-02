@@ -3,7 +3,7 @@ import { ERC20Token } from './entities/token'
 
 export enum ChainId {
   ETHEREUM =1 ,
-  KBC = 22000,// 11000, 
+  KBC =  11000, 
   GOERLI = 5,
   BSC = 56,
   BSC_TESTNET = 97,
@@ -12,12 +12,12 @@ export enum ChainId {
 export const ZERO_PERCENT = new Percent('0')
 export const ONE_HUNDRED_PERCENT = new Percent('1')  
 
-export const FACTORY_ADDRESS = '0xdeeEb537Aad066AAdA2551CFEE638aD9aDF77269'    // 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73    
+export const FACTORY_ADDRESS = '0xdeeEb537Aad066AAdA2551CFEE638aD9aDF77269'      // 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73    
 
 const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'    
  
 export const FACTORY_ADDRESS_MAP: Record<number, string> = {  
-  [ChainId.KBC]: '0x02Ba95b4831cf794A38Ba2DC7Ba9E101C5d96A43',
+  [ChainId.KBC]: '0x21db85B18eeA918Fb97011df72F24d6764d24ea3', 
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
   [ChainId.BSC]: "0x865b96aC425B4d5F81f6986f5391f3278e307F0e",// FACTORY_ADDRESS, 
@@ -30,7 +30,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH, 
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
-  [ChainId.KBC]: '0xb790efe764491855dba1516206f6de4fce8d6e80094310f9f27770e7c81f79bb',        // 0x4ebe4285f94212ea215880672e2d749cb314c339b13437a7c3a15c74b0209fd1 this
+  [ChainId.KBC]: '0xd8d3667d47ee711d905d54e489648e1033b6e175aab601dda14273976a34d1ff',         // 0x4ebe4285f94212ea215880672e2d749cb314c339b13437a7c3a15c74b0209fd1 this
   [ChainId.BSC_TESTNET]: '0xb790efe764491855dba1516206f6de4fce8d6e80094310f9f27770e7c81f79bb',      
 }
 
@@ -80,7 +80,7 @@ export const WBNB = {
   ),
   [ChainId.KBC]: new ERC20Token(
     ChainId.KBC,
-    '0xE1e61dD8DF8bbF75935fe04Dc214c6d517fc3622', 
+    '0xd243f54604F88D22AbBb7a13F62a1780a50d0a19',  
     18,
     'KBC',
     'Wrapped KBC',
@@ -91,7 +91,7 @@ export const WBNB = {
 export const WKBC = {
   [ChainId.KBC]: new ERC20Token(
     ChainId.KBC,
-    '0xE1e61dD8DF8bbF75935fe04Dc214c6d517fc3622',  
+    '0xd243f54604F88D22AbBb7a13F62a1780a50d0a19',  
     18,
     'KBC',
     'Wrapped KBC',
