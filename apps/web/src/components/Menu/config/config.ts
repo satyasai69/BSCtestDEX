@@ -92,7 +92,7 @@ const config: (
         }, */
         {
           label: t('Pools'),
-          href: 'https://kbc-stacking.vercel.app/',
+          href: 'https://kbcstake.vercel.app/',
          // supportChainIds: SUPPORT_ONLY_BSC,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
